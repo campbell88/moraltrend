@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="moraltrendDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'moraltrendDB.dbo.braceletInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="braceletInfo">
+          <Key>
+            <PropertyRef Name="braceletID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="location" />
+            <PropertyRef Name="deedDate" />
+            <PropertyRef Name="goodDeed" />
+          </Key>
+          <Property Name="braceletID" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="deedDate" Type="date" Nullable="false" />
+          <Property Name="goodDeed" Type="varchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="moraltrendDBModelStoreContainer">
+          <EntitySet Name="braceletInfo" EntityType="Self.braceletInfo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [braceletInfo].[braceletID] AS [braceletID], 
+    [braceletInfo].[name] AS [name], 
+    [braceletInfo].[location] AS [location], 
+    [braceletInfo].[deedDate] AS [deedDate], 
+    [braceletInfo].[goodDeed] AS [goodDeed]
+    FROM [dbo].[braceletInfo] AS [braceletInfo]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="moraltrendDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="braceletInfo">
+          <Key>
+            <PropertyRef Name="braceletID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="location" />
+            <PropertyRef Name="deedDate" />
+            <PropertyRef Name="goodDeed" />
+          </Key>
+          <Property Name="braceletID" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="goodDeed" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="moraltrendDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="braceletInfoes" EntityType="Self.braceletInfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="moraltrendDBModelStoreContainer" CdmEntityContainer="moraltrendDBEntities">
+          <EntitySetMapping Name="braceletInfoes">
+            <EntityTypeMapping TypeName="moraltrendDBModel.braceletInfo">
+              <MappingFragment StoreEntitySet="braceletInfo">
+                <ScalarProperty Name="braceletID" ColumnName="braceletID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="deedDate" ColumnName="deedDate" />
+                <ScalarProperty Name="goodDeed" ColumnName="goodDeed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
